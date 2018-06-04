@@ -1,0 +1,30 @@
+package com.qingguatang.java5minute.course4.model2;
+
+import org.springframework.stereotype.Controller;
+import org.springframework.ui.ModelMap;
+import org.springframework.web.bind.annotation.RequestMapping;
+
+import java.util.ArrayList;
+import java.util.List;
+
+@Controller
+public class CommentControl {
+    @RequestMapping(value = "/comments")
+    public String comments(ModelMap modelMap){
+        List<Comment> comments = getComment();
+        modelMap.addAttribute("comments", comments);
+        return "comments";
+    }
+    private List<Comment> getComment(){
+        List<Comment> commens =new ArrayList<>();
+        Comment comment=new Comment();
+        comment.setIcon("http://p2.music.126.net/fQPcNZ7yTMMRkBIobpgiXw==/109951163284896187.jpg?param=180y180");
+        comment.setNickName("Notearslefttocry");
+        comment.setContent("hello！一转眼四年了！终于等到王者的归来~阿呆的全球屠榜又要开始啦！在此献上我的鸡腿！嘻嘻~");
+        comment.setCommentTime("2015年10月23日");
+        comment.setLikeNum(82772);
+        commens.add(comment);
+
+        return commens;
+    }
+}
